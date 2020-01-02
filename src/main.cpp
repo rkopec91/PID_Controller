@@ -77,7 +77,7 @@ int main() {
           if(steer_value < -1.0) {
             steer_value = -1.0;
           }
-          double err_speed = speed - 30;
+          double err_speed = speed - 15;
           speed_pid.UpdateError(err_speed);
           throttle_value = speed_pid.TotalError();
           if(throttle_value > 1.0) {
