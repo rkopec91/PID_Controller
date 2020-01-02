@@ -76,8 +76,12 @@ int main() {
           double err_speed = speed - 30;
           speed_pid.UpdateError(err_speed);
           throttle_value = speed_pid.TotalError();
-          if(throttle_value > 1.0) throttle_value = 1.0;
-          if(throttle_value < -1.0) throttle_value = -1.0;
+          if(throttle_value > 1.0) {
+            throttle_value = 1.0;
+          }
+          if(throttle_value < -1.0) {
+            throttle_value = -1.0;
+          }
           // DEBUG
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value 
                     << std::endl;
