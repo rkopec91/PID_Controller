@@ -40,7 +40,7 @@ int main() {
    * TODO: Initialize the pid variable.
    */
 
-  pid.Init(0.11, 0.001, 1.1);
+  pid.Init(0.12, 0.001, 1.1);
   speed_pid.Init(0.1,0.002,0.0002);
 
   h.onMessage([&pid, &speed_pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, 
@@ -77,8 +77,7 @@ int main() {
           if(steer_value < -1.0) {
             steer_value = -1.0;
           }
-          double err_speed = speed - 15;
-          speed_pid.UpdateError(err_speed);
+          speed_pid.UpdateError(speed - 15);
           throttle_value = speed_pid.TotalError();
           if(throttle_value > 1.0) {
             throttle_value = 1.0;
