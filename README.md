@@ -93,6 +93,34 @@ that's just a guess.
 One last note here: regardless of the IDE used, every submitted project must
 still be compilable with cmake and make./
 
+# Tuning
+
+For this project I tuned my parameters manually.  It took a little while but 
+I think that the parameters I chose worked well.  There are three parameters 
+that needed to be tuned for a PID controller.  The Proportional (P) part, the 
+Integral (I) part, and the Derivative (D) part hence the name PID.
+
+The proportional part controls the error proportionally, the integral part 
+accumulates the error, and the derivative part controls the rate of change in 
+the error.  The following shows how the error is updated:
+
+```
+d_error = cte-p_error;
+p_error = cte;
+i_error += cte;
+```
+
+I found the following image from a website that helped me tune the controller 
+and understand how each parameter had an effect on the way the car corrected itself.
+
+https://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/s2012/fas57_nyp7/Site/pidcontroller.html
+
+![alt text](./PID.png)
+
+For tunning, I basically set I to 0 and then set P and D to 1.  Then I tried to 
+fine tune P and D as best I could then I added the some value to the I term.  It was 
+mostly just guess and check.
+
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
 
