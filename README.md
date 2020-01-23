@@ -119,7 +119,17 @@ https://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/s2012/fas57_ny
 
 For tunning, I basically set I to 0 and then set P and D to 1.  Then I tried to 
 fine tune P and D as best I could then I added the some value to the I term.  It was 
-mostly just guess and check.
+mostly just guess and check.  I settled on the following parameters
+
+Steering
+P = 0.12
+I = 0.001
+D = 1.1
+
+Speed
+P = 0.1
+I = 0.002
+D = 0.0002
 
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
